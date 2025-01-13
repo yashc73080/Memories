@@ -7,12 +7,12 @@ import postRoutes from './routes/posts.js';
 
 const app = express(); // Initialize the express app
 
-app.use('/posts', postRoutes); // Set up routes for the posts
-
 // Set up bodyParser to properly send requests
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
+app.use(cors()); // Above routes so that CORS applies to the routes as well
+
+app.use('/posts', postRoutes); // Set up routes for the posts
 
 // connect to deplpoyment: mongodb+srv://yashchennawar:<db_password>@cluster0.zedk2.mongodb.net/
 // user 1 | pw123123
