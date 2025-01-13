@@ -146,6 +146,16 @@ git push heroku main
 heroku logs --tail
 ```
 
+### Frontend (client) on Netlify
+
+1. Setup Netlify account, connect it to GitHub, and choose this repository to build. 
+2. The build will fail since it does not point to the right folder yet. Go to **Site configuration** > **Build & deploy** > **Build settings**. Click **Configure**. Change the following values: <br>
+    - **Base directory**: ```client``` <br>
+      **Build command**: ```npm run build``` <br>
+      **Publish directory**: ```client/build``` <br>
+3. Then change the environment variables by going to **Site configuration** > **Environment variables**. Click **Add a variable**, and use the same names as in the ```.env.local```. The backend URL is whatever was given from Heroku followed by '/posts'. 
+4. Then go to **Deploys** and click **Trigger deploy**. 
+
 
 
 TODO: search posts by hashtag
