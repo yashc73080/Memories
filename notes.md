@@ -63,3 +63,17 @@ Create folders ```routes/```, ```controllers/```, and ```models/```, all in the 
 ## Listening to the API
 
 In ```client/```, we need to add code to get information from the API localhost url. Make 3 new folders: ```api/```, ```actions/```, ```reducers/``` all in ```src/```. ```api/``` uses axios to fetch data while ```actions/``` and ```reducers/``` use redux. 
+
+## Adding new functionality
+
+When adding new functionality for the website that needs backend logic, follow these steps in this order:
+1. Add a new route in ```server/routes/posts.js```
+    - For this to work, whatever variable is being changed needs to be imported from ```server/controllers/posts.js``` so, add it there. 
+2. In ```server/controllers/posts.js```, write a new async function to handle whatever functionality was added in the routes. 
+    - This step uses the MongoDB model created in ```sever/models/``` so that must be created first.
+3. Now onto the ```client/``` side. In ```client/src/api/index.js```, implement a new API call for this. 
+4. In ```client/src/actions/posts.js```, create an action creator function that uses the API call just created and a redux dispatch function. 
+5. Update ```client/src/reducers/posts.js``` to make a new case for this action in the switch/case block. 
+6. Go to the relevant UI element in ```client/components/``` and implement the frontend functionality for the backend API just created. 
+    - Import and initialize a redux dispatch to use the new function. 
+    - Import the action that was just created to be used in the UI. 
