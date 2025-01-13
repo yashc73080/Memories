@@ -38,14 +38,14 @@ Now, update ```package.json``` to add these:
 ```
 ```
 "scripts": {
-    "start": "nodemon index.js"
+    "dev": "nodemon index.js"
   },
 ```
 
 ## Running the Application
 
 For the client side: run with ```npm start``` <br>
-For the server side: run with ```npm  start```
+For the server side: run with ```npm run dev```
 
 ## MongoDB Setup
 
