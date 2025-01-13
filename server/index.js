@@ -16,6 +16,10 @@ app.use(cors()); // Above routes so that CORS applies to the routes as well
 
 app.use('/posts', postRoutes); // Set up routes for the posts
 
+app.get('/', (req, res) => {
+    res.send('Hello to Memories API');
+});
+
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
 
