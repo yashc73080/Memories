@@ -82,6 +82,10 @@ When adding new functionality for the website that needs backend logic, follow t
 To summarize: <br>
 routes -> controllers -> api -> actions -> reducers -> UI
 
+## Deployment
+
+Go in server directory and run ```heroku login```. Make a ```Procfile``` to give instructions to Heroku about how to deploy the code. 
+
 
 
 
