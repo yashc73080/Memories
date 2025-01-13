@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid2 } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 
 import { getPosts } from './actions/posts';
@@ -8,6 +9,8 @@ import Form from './components/Form/Form';
 import memories from './images/memories.png';
 
 import useStyles from './styles';
+
+const theme = createTheme();
 
 const App = () => {
     const classes = useStyles();
@@ -18,24 +21,26 @@ const App = () => {
     }, [dispatch]);
 
     return (
-        <Container maxwidth="lg">
-            <AppBar className={classes.appBar} position="static" color="inherit">
-                <Typography className={classes.heading} variant="h2" align="center">Memories</Typography>
-                <img className={classes.image} src={memories} alt="memories" height="60" />
-            </AppBar>
-            <Grow in>
-                <Container>
-                    <Grid2 container justify="space-between" alignItems="stretch" spacing={3}>
-                        <Grid2 item="true" xs={12} sm={7}>
-                            <Posts />
+        <ThemeProvider theme={theme}>
+            <Container maxwidth="lg">
+                <AppBar className={classes.appBar} position="static" color="inherit">
+                    <Typography className={classes.heading} variant="h2" align="center">Memories</Typography>
+                    <img className={classes.image} src={memories} alt="memories" height="60" />
+                </AppBar>
+                <Grow in>
+                    <Container>
+                        <Grid2 container justify="space-between" alignItems="stretch" spacing={3}>
+                            <Grid2 item="true" xs={12} sm={7}>
+                                <Posts />
+                            </Grid2>
+                            <Grid2 item="true" xs={12} sm={4}>
+                                <Form />
+                            </Grid2>
                         </Grid2>
-                        <Grid2 item="true" xs={12} sm={4}>
-                            <Form />
-                        </Grid2>
-                    </Grid2>
-                </Container>
-            </Grow>
-        </Container>
+                    </Container>
+                </Grow>
+            </Container>
+        </ThemeProvider>
     );
 }
 

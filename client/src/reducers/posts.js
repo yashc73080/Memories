@@ -4,7 +4,7 @@ export default (posts = [], action) => {
         case 'FETCH_ALL':
             return action.payload; // in actions/posts.js, we are fetching all posts and storing them in payload, we can just return the action.payload here
         case 'CREATE':
-            return posts;
+            return [...posts, action.payload];
         default:
             return posts;
     }
