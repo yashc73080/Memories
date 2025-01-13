@@ -9,12 +9,12 @@
 In ```client/```, run this to make a new react app and install dependencies:
 ```
 npx create-react-app ./
-npm install axios moment react-file-base64 redux redux-thunk react-redux
+npm install axios moment react-file-base64 react-redux @reduxjs/toolkit
 ```
 - axios: for making API requests
 - moment: library for working with time and date
 - react-file-base64: to convert images
-- redux, redux-thunk, react-redux: asynchronous actions
+- react-redux, reduxjs/toolkit: asynchronous actions
 
 Make ```index.js```, it is where we will connext React application to index.html file
 

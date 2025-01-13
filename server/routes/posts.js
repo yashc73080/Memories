@@ -3,11 +3,12 @@
 
 import express from 'express';
 
-import { getPosts, createPost } from '../controllers/posts.js';
+import { getPosts, createPost, updatePost } from '../controllers/posts.js';
 
 const router = express.Router();
 
 router.get('/',  getPosts); // calls the getPosts callback function
 router.post('/',  createPost); 
+router.patch('/:id',  updatePost); // patch for updating existing documents, /:id is dynamic
 
 export default router;

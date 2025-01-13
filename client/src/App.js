@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid2 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
@@ -13,6 +13,8 @@ import useStyles from './styles';
 const theme = createTheme();
 
 const App = () => {
+    const [currentId, setCurrentId] = useState(null);
+
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -29,12 +31,12 @@ const App = () => {
                 </AppBar>
                 <Grow in>
                     <Container>
-                        <Grid2 container justify="space-between" alignItems="stretch" spacing={3}>
+                        <Grid2 container justifyContent="space-between" alignItems="stretch" spacing={3}>
                             <Grid2 item="true" xs={12} sm={7}>
-                                <Posts />
+                                <Posts setCurrentId={setCurrentId} />
                             </Grid2>
                             <Grid2 item="true" xs={12} sm={4}>
-                                <Form />
+                                <Form currentId={currentId} setCurrentId={setCurrentId} />
                             </Grid2>
                         </Grid2>
                     </Container>
