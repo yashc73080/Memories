@@ -4,7 +4,7 @@ import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionType
 const postsReducer = (posts = [], action) => {
     switch (action.type) {
         case FETCH_ALL:
-            return action.payload; // in actions/posts.js, we are fetching all posts and storing them in payload, we can just return the action.payload here
+            return Array.isArray(action.payload) ? action.payload : []; // in actions/posts.js, we are fetching all posts and storing them in payload, we can just return the action.payload here
         case CREATE:
             return [...posts, action.payload];
         case UPDATE:

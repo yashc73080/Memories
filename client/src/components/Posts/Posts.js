@@ -12,6 +12,10 @@ const Posts = ({ setCurrentId }) => {
 
     console.log(posts);
 
+    if (!Array.isArray(posts)) {
+        return <p>No posts available.</p>;
+    }
+
     return (
         !posts.length ? <CircularProgress /> : (
             <div className={classes.container}>
