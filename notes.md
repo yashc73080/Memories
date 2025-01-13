@@ -73,6 +73,7 @@ When adding new functionality for the website that needs backend logic, follow t
     - This step uses the MongoDB model created in ```sever/models/``` so that must be created first.
 3. Now onto the ```client/``` side. In ```client/src/api/index.js```, implement a new API call for this. 
 4. In ```client/src/actions/posts.js```, create an action creator function that uses the API call just created and a redux dispatch function. 
+    - It is a good practice to have the action type as a variable in a separate ```client/src/constants/``` folder. 
 5. Update ```client/src/reducers/posts.js``` to make a new case for this action in the switch/case block. 
 6. Go to the relevant UI element in ```client/components/``` and implement the frontend functionality for the backend API just created. 
     - Import and initialize a redux dispatch to use the new function. 

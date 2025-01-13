@@ -2,10 +2,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 import postRoutes from './routes/posts.js';
 
 const app = express(); // Initialize the express app
+dotenv.config();
 
 // Set up bodyParser to properly send requests
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -14,10 +16,7 @@ app.use(cors()); // Above routes so that CORS applies to the routes as well
 
 app.use('/posts', postRoutes); // Set up routes for the posts
 
-// connect to deplpoyment: mongodb+srv://yashchennawar:<db_password>@cluster0.zedk2.mongodb.net/
-// user 1 | pw123123
-
-const CONNECTION_URL = `mongodb+srv://yashchennawar:Isshkr9gw19LfTlm@cluster0.zedk2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
 
 // Connect to the database and start the server
