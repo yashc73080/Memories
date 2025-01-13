@@ -67,7 +67,7 @@ In ```client/```, we need to add code to get information from the API localhost 
 ## Adding new functionality
 
 When adding new functionality for the website that needs backend logic, follow these steps in this order:
-1. Add a new route in ```server/routes/posts.js```
+1. Add a new route in ```server/routes/posts.js```.
     - For this to work, whatever variable is being changed needs to be imported from ```server/controllers/posts.js``` so, add it there. 
 2. In ```server/controllers/posts.js```, write a new async function to handle whatever functionality was added in the routes. 
     - This step uses the MongoDB model created in ```sever/models/``` so that must be created first.
@@ -77,3 +77,6 @@ When adding new functionality for the website that needs backend logic, follow t
 6. Go to the relevant UI element in ```client/components/``` and implement the frontend functionality for the backend API just created. 
     - Import and initialize a redux dispatch to use the new function. 
     - Import the action that was just created to be used in the UI. 
+
+To summarize: <br>
+routes -> controllers -> api -> actions -> reducers -> UI
