@@ -5,10 +5,19 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
   },
-  smMargin: {
-    margin: theme.spacing(1),
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: '20px',
+    padding: '20px',
+    width: '100%',
+    maxWidth: '1200px',
+    margin: '0 auto',
   },
-  actionDiv: {
-    textAlign: 'center',
-  },
+  postItem: {
+    width: 'calc(50% - 10px)',  // 50% width minus half of gap
+    minWidth: '280px',
+    marginBottom: '20px',
+  }
 }));

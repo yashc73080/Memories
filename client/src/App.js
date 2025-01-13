@@ -31,14 +31,14 @@ const App = () => {
                 </AppBar>
                 <Grow in>
                     <Container>
-                        <Grid2 container justifyContent="space-between" alignItems="stretch" spacing={3}>
-                            <Grid2 item="true" xs={12} sm={7}>
+                        <div className={classes.mainContainer}>
+                            <div style={{ flex: '1' }}>
                                 <Posts setCurrentId={setCurrentId} />
-                            </Grid2>
-                            <Grid2 item="true" xs={12} sm={4}>
+                            </div>
+                            <div style={{ width: '380px' }}>
                                 <Form currentId={currentId} setCurrentId={setCurrentId} />
-                            </Grid2>
-                        </Grid2>
+                            </div>
+                        </div>
                     </Container>
                 </Grow>
             </Container>
