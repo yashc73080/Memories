@@ -80,3 +80,8 @@ When adding new functionality for the website that needs backend logic, follow t
 
 To summarize: <br>
 routes -> controllers -> api -> actions -> reducers -> UI
+
+
+
+
+TODO: search posts by hashtag

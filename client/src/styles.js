@@ -15,9 +15,14 @@ export default makeStyles(() => ({
   image: {
       marginLeft: '15px',
   },
+  brandContainer: {
+      display: 'flex',
+      alignItems: 'center',
+  },
   mainContainer: {
       display: 'flex',
       gap: '40px',
       padding: '20px',
   }
 }));
+

@@ -26,19 +26,21 @@ const App = () => {
         <ThemeProvider theme={theme}>
             <Container maxwidth="lg">
                 <AppBar className={classes.appBar} position="static" color="inherit">
-                    <Typography className={classes.heading} variant="h2" align="center">Memories</Typography>
-                    <img className={classes.image} src={memories} alt="memories" height="60" />
+                    <div className={classes.brandContainer}>
+                        <Typography className={classes.heading} variant="h2" align="center">Memories</Typography>
+                        <img className={classes.image} src={memories} alt="memories" height="60" />
+                    </div>
                 </AppBar>
                 <Grow in>
                     <Container>
-                        <div className={classes.mainContainer}>
-                            <div style={{ flex: '1' }}>
+                        <Grid2 className={classes.mainContainer}>
+                            <Grid2 style={{ flex: '1' }}>
                                 <Posts setCurrentId={setCurrentId} />
-                            </div>
-                            <div style={{ width: '380px' }}>
+                            </Grid2>
+                            <Grid2 style={{ width: '380px' }}>
                                 <Form currentId={currentId} setCurrentId={setCurrentId} />
-                            </div>
-                        </div>
+                            </Grid2>
+                        </Grid2>
                     </Container>
                 </Grow>
             </Container>
