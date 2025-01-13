@@ -84,8 +84,67 @@ routes -> controllers -> api -> actions -> reducers -> UI
 
 ## Deployment
 
-Go in server directory and run ```heroku login```. Make a ```Procfile``` to give instructions to Heroku about how to deploy the code. 
+### Backend (server) on Heroku
 
+1. Setup Heroku account and make new project. Connect it to this project by opening the command line and typing the following command, and then following the instructions:
+```bash
+heroku login
+```
+2. Remove existing buildpacks
+```bash
+heroku buildpacks:clear
+```
+3. Since this repository has client and server folders, and for Heroku only the server side matters, we must use "multi-buildpack setup". First, add the Monorepo Buildpack:
+```bash
+heroku buildpacks:add --index 1 https://github.com/lstoll/heroku-buildpack-monorepo
+```
+4. Add the Node.js Buildpack:
+```bash
+heroku buildpacks:add --index 2 heroku/nodejs
+```
+5. Set the ```PATH_BASE``` and ```APP_BASE``` environment variables
+```bash
+heroku config:set PATH_BASE=server
+heroku config:set APP_BASE=server
+```
+6. Verify that the buildpacks are in the right order using this command:
+```bash
+heroku buildpacks
+```
+This is the expected output: 
+```text
+1. https://github.com/lstoll/heroku-buildpack-monorepo
+2. heroku/nodejs
+```
+7. Verify that ```package.json``` is in ```server/``` and that it has the following script. It must use ```node``` and not ```nodemon```. 
+```json
+"scripts": {
+    "start": "node index.js"
+},
+```
+8. Make a ```Procfile``` in the root of the whole repository (outside ```server/```), with just the following line:
+```
+web: npm start
+```
+9. Configure MongoDB Atlas IP Whitelist (in  Network Access) to allow all IPs (```0.0.0.0/0```). This should be temporary since having this is not secure. 
+10. Set the ```CONNECTION_URL``` environment variable in Heroku's config:
+```bash
+heroku config:set CONNECTION_URL=<your-mongodb-connection-string>
+```
+Place double quotation marks around any ampersands in the string. 
+11. Commit the changes:
+```bash
+git add .
+git commit -m <commit message>
+```
+12. Push the changes to Heroku
+```bash
+git push heroku main
+```
+13. To see more detailed logs and possible errors, run:
+```bash
+heroku logs --tail
+```
 
 
 
