@@ -156,6 +156,7 @@ heroku logs --tail
 3. Then change the environment variables by going to **Site configuration** > **Environment variables**. Click **Add a variable**, and use the same names as in the ```.env.local```. The backend URL is whatever was given from Heroku followed by '/posts'. 
 4. Then go to **Deploys** and click **Trigger deploy**. 
 
+## Authentication
 
-
-TODO: search posts by hashtag
+In ```client```, install the following packages: react-router-dom, jwt-decode, react-google-login. <br>
+In ```server```, install the following packages: bcryptjs, jsonwebtoken
